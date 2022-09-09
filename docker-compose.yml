@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  resource:
+    container_name: resource
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8090:9090"
+    env_file:
+      - .env.production
+    volumes:
+      - ./resources:/usr/app/resources
+    restart: always
